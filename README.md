@@ -1,44 +1,44 @@
 # IntelliDoc
 
-IntelliDoc é uma **API baseada em FastAPI** que utiliza inteligência artificial para analisar e extrair informações de documentos carregados pelo usuário. A solução emprega modelos de linguagem grande (LLMs) e técnicas de criação de agentes para classificar conteúdo, detectar cláusulas importantes e oferecer análises de risco estruturadas.
+IntelliDoc is a **FastAPI-based API** that leverages artificial intelligence to analyze and extract information from documents uploaded by users. The solution employs large language models (LLMs) and agent creation techniques to classify content, detect important clauses, and provide structured risk analysis.
 
-## Principais funcionalidades
+## Key Features
 
-- Upload de arquivos em diversos formatos (PDF, CSV, HTML etc.)
-- Processamento assíncrono dos documentos
-- Extração de texto e geração de embeddings
-- Classificação inteligente e análise de riscos
-- API REST com endpoints documentados via OpenAPI/Swagger
+- File upload in various formats (PDF, CSV, HTML, etc.)
+- Asynchronous document processing
+- Text extraction and embedding generation
+- Intelligent classification and risk analysis
+- REST API with endpoints documented via OpenAPI/Swagger
 
-## Estrutura do projeto
+## Project Structure
 
 ```
-intellidoc/                  # raiz do repositório
-├── api/                     # camada de interface HTTP
-│   ├── main.py              # instancia FastAPI e registra routers
-│   ├── routes/              # definicao de rotas
-│   │   └── documents.py     # endpoint de análise de documentos
-│   └── schemas/             # Pydantic schemas de request/response
+intellidoc/                  # repository root
+├── api/                     # HTTP interface layer
+│   ├── main.py              # instantiates FastAPI and registers routers
+│   ├── routes/              # route definitions
+│   │   └── documents.py     # document analysis endpoint
+│   └── schemas/             # Pydantic schemas for request/response
 │       └── document_schema.py
-├── core/                    # configurações e utilitários centrais
-│   ├── config.py            # carregamento de configurações
-│   └── logger.py            # inicialização de logging
-├── processors/              # lógica de processamento de arquivos
-│   ├── base_processor.py    # classe base comum
+├── core/                    # central configuration and utilities
+│   ├── config.py            # configuration loading
+│   └── logger.py            # logging initialization
+├── processors/              # file processing logic
+│   ├── base_processor.py    # common base class
 │   ├── pdf_processor.py
 │   ├── html_processor.py
 │   └── csv_processor.py
-├── services/                # serviços que coordenam o fluxo de dados
-│   ├── document_service.py  # orquestra análise e chamada aos processors
-│   └── llm_service.py       # integração com modelos de linguagem
-├── requirements.txt         # dependências do Python
-└── README.md                # documentação deste projeto
+├── services/                # services coordinating data flow
+│   ├── document_service.py  # orchestrates analysis and processor calls
+│   └── llm_service.py       # language model integration
+├── requirements.txt         # Python dependencies
+└── README.md                # documentation for this project
 ```
 
-## Execução
+## Getting Started
 
-1. Crie e ative um ambiente virtual (`python -m venv venv && venv\Scripts\Activate.ps1`).
-2. Instale dependências (`pip install -r requirements.txt`).
-3. Execute o servidor com `uvicorn api.main:app --reload`.
+1. Create and activate a virtual environment (`python -m venv venv && venv\Scripts\Activate.ps1`).
+2. Install dependencies (`pip install -r requirements.txt`).
+3. Run the server with `uvicorn main:app --reload`.
 
 ---
